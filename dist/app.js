@@ -18,7 +18,7 @@ app.get('/', logger, (req, res) => {
     res.send('Get Data For Site');
 });
 app.all('**', (req, res) => {
-    res.sendStatus(400).json({
+    res.status(400).json({
         message: 'Unauthorized Action',
         success: false,
     });

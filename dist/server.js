@@ -19,12 +19,10 @@ function main() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             yield mongoose_1.default.connect(config_1.default.db);
-            app_1.default.listen(config_1.default.port, () => {
-                console.log('Connection Established');
-            });
+            app_1.default.listen(config_1.default.port, () => { });
         }
         catch (err) {
-            console.error('Port or Database Connection Error ', err);
+            new Error('Port or Database Connection Error');
         }
     });
 }
