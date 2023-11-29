@@ -1,5 +1,6 @@
 import express, { Application, NextFunction, Request, Response } from 'express'
 import cors from 'cors'
+import { dbconnect } from './app/utill/dbconnect'
 
 const app: Application = express()
 
@@ -9,12 +10,19 @@ app.use(express.text())
 
 // Middleware
 app.use(cors())
+
+// Database Connect
+dbconnect()
+
 const logger = (req: Request, res: Response, next: NextFunction) => {
   next()
 }
 
 app.get('/', logger, (req: Request, res: Response) => {
-  res.send('Get Data For Site')
+  res.status(200).json({
+    success: true,
+    message: 'Site Works Fine Now'
+  })
 })
 
 app.all('**', (req: Request, res: Response) => {
