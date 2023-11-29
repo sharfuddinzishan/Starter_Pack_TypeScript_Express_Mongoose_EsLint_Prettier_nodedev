@@ -19,7 +19,8 @@
     "no-unused-expressions": "error",
     "no-undef": "error",
     "prefer-const": "warn",
-    "no-console": "warn"
+    // "no-console": "warn"
+    "no-console": "off"
   },
   "globals": {
     "process": "readonly"
