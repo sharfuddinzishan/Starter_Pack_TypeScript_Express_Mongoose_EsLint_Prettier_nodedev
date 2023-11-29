@@ -1,6 +1,6 @@
 import express, { Application, NextFunction, Request, Response } from 'express'
 import cors from 'cors'
-import { dbconnect } from './app/utill/dbconnect'
+import { dbconnect } from './utill/dbconnect'
 
 const app: Application = express()
 
