@@ -8,5 +8,6 @@ dotenv.config({
 export default {
   port: process.env.PORT,
   db: process.env.DATABASE_URL,
-  salt_rounds: process.env.SALT_ROUNDS
+  salt_rounds: process.env.SALT_ROUNDS,
+  defaultStudentPass: process.env.DEFAULT_STUDENT_PASS
 }

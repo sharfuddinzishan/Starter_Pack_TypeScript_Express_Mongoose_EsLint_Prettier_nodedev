@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import mongoose from 'mongoose'
-import config from '../app/config'
+import config from '../app/config/config'
 
 export const dbconnect = async (): Promise<void> => {
   if (!config.db) {

@@ -1,6 +1,9 @@
 import express, { Application, NextFunction, Request, Response } from 'express'
 import cors from 'cors'
 import { dbconnect } from './utill/dbconnect'
+import router from './app/routes'
+import globalErrorHandler from './app/middlewares/globalErrorHandler'
+import notFound from './app/middlewares/notFound'
 
 const app: Application = express()
 
@@ -18,6 +21,9 @@ const logger = (req: Request, res: Response, next: NextFunction) => {
   next()
 }
 
+// Application Routes
+app.use('/api/v1', router)
+
 app.get('/', logger, (req: Request, res: Response) => {
   res.status(200).json({
     success: true,
@@ -31,5 +37,8 @@ app.all('**', (req: Request, res: Response) => {
     success: false
   })
 })
+
+app.use(globalErrorHandler)
+app.use(notFound)
 
 export default app
